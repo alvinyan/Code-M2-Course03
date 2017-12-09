@@ -34,7 +34,7 @@ app.config.from_object(config['development'])
 @app.route('/')
 # 定义设置网站首页的处理函数
 def gotoIndex():
-    res = 5 / 0 # 除零错误代码
+    res = 5 / 1 # 除零错误代码
     # 浏览器输出
     return '你好，Flask!'
 
