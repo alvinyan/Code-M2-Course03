@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-    miniconfig.py 脚本
+    miniconfig.py
     ~~~~~~~~~
     
     演示Flask配置模式（直接写入脚本）.

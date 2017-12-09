@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-    helloflask.py 脚本
+    helloflask.py
     ~~~~~~~~~
     
     演示快速创建Flask应用项目.

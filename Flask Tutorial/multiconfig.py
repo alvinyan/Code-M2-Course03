@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-    multiconfig.py 配置脚本
+    multiconfig.py
     ~~~~~~~~~
     
     针对 开发、测试不同环境的配置设置

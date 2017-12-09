@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-    config.py 单独的配置脚本
+    config.py
     ~~~~~~~~~
+
+    演示单独的配置脚本
 
     :copyright: (c) 2017 by Chinasoft International·ETC.    
     :license: BSD, see LICENSE for more details.
