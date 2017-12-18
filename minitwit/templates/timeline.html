@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}
+  {% if request.endpoint == 'public_timeline' %}
+    公共发布消息
+  {% elif request.endpoint == 'user_timeline' %}
+    {{ profile_user.username }}发布的消息
+  {% else %}
+    我的消息
+  {% endif %}
+{% endblock %}
+{% block body %}
+  <h2>{{ self.title() }}</h2>
+  {% if g.user %}
+    {% if request.endpoint == 'user_timeline' %}
+      <div class="followstatus">
+      {% if g.user.user_id == profile_user.user_id %}
+        这是您!
+      {% elif followed %}
+        您当前正在持续关注该用户
+        <a class="unfollow" href="{{ url_for('unfollow_user', username=profile_user.username)
+          }}">取消关注</a>.
+      {% else %}
+        您尚未关注该用户.
+        <a class="follow" href="{{ url_for('follow_user', username=profile_user.username)
+          }}">马上关注</a>.
+      {% endif %}
+      </div>
+    {% elif request.endpoint == 'timeline' %}
+      <div class="twitbox">
+        <h3>现在想说点儿什么， {{ g.user.username }}?</h3>
+        <form action="{{ url_for('add_message') }}" method="post">
+          <p><input type="text" name="text" size="60"><!--
+          --><input type="submit" value="发布">
+        </form>
+      </div>
+    {% endif %}
+  {% endif %}
+  <ul class="messages">
+  {% for message in messages %}
+    <li><img src="{{ message.email|gravatar(size=48) }}"><p>
+      <strong><a href="{{ url_for('user_timeline', username=message.username)
+      }}">{{ message.username }}</a></strong>
+      {{ message.text }}
+      <small>&mdash; {{ message.pub_date|datetimeformat }}</small>
+  {% else %}
+    <li><em>到目前为止您还未发布过任何消息</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

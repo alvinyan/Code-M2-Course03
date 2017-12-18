@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Sign In{% endblock %}
+{% block body %}
+  <h2>登录</h2>
+  {% if error %}<div class="error"><strong>Error:</strong> {{ error }}</div>{% endif %}
+  <form action="" method="post">
+    <dl>
+      <dt>登录账号:
+      <dd><input type="text" name="username" size="30" value="{{ request.form.username }}">
+      <dt>登录密码:
+      <dd><input type="password" name="password" size="30">
+    </dl>
+    <div class="actions"><input type="submit" value="立即登录"></div>
+  </form>
+{% endblock %}
+

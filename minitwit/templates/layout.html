@@ -1,0 +1,32 @@
+<!doctype html>
+<title>{% block title %}欢迎：{% endblock %} | 企业内部即时沟通平台</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+  <h1>企业内部即时沟通平台</h1>
+  <div class="navigation">
+  {% if g.user %}
+    <a href="{{ url_for('timeline') }}">我的消息</a> |
+    <a href="{{ url_for('public_timeline') }}">公共发布消息</a> |
+    [{{ g.user.username }}]&nbsp;<a href="{{ url_for('logout') }}">退出</a>
+  {% else %}
+    <a href="{{ url_for('public_timeline') }}">公共发布消息</a> |
+    <a href="{{ url_for('register') }}">新用户注册</a> |
+    <a href="{{ url_for('login') }}">用户登录</a>
+  {% endif %}
+  </div>
+  {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      <ul class="flashes">
+      {% for message in flashes %}
+        <li>{{ message }}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <div class="body">
+  {% block body %}{% endblock %}
+  </div>
+  <div class="footer">
+    企业内部即时沟通平台 &mdash; 中软国际·ETC
+  </div>
+</div>
