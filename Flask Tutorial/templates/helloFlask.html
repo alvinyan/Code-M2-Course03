@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 模板应用静态资源CSS样式表 -->
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css', _external=True) }} "/>
+</head>
+<body>
+    <!-- 采用Jinja2模板引擎中的模板表达式进行逻辑处理 -->
+    <!-- 判断name变量是否存在？ -->
+    {% if name %}
+        <!-- 输出name的值 -->
+        <h1>你好 {{ name }}!</h1>
+    <!-- 否则 -->
+    {% else %}
+        <!-- 输出 -->
+        <h1>你好, Flask!</h1>
+    <!-- 结束判断 -->
+    {% endif %}
+</body>
+</html>

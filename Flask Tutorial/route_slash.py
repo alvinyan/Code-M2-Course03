@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-    ruote_redirect.py
+    ruote_slash.py
     ~~~~~~~~~
     
     演示路由配置特殊URLs/重定向动作行为.

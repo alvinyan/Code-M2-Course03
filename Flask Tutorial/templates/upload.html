@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 模板应用静态资源CSS样式表 -->
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css', _external=True) }} "/>
+</head>
+<body>
+    <!-- 定义上传文件的表单 -->
+    <form id="uploadForm" name="uploadForm" method="post" enctype="multipart/form-data" action="/upload">
+        文件：<input type="file" id="uploadfile" name="uploadfile" required placeholder="选择上传文件"/><br/>
+        <input type="submit" class="submit" value="上传"/>
+    </form>
+</body>
+</html>

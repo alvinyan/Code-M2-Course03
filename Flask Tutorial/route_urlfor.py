@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-    ruote_ex01.py
+    ruote_urlfor.py
     ~~~~~~~~~
     
-    演示路由配置的最基本表现形式.
+    演示URL构建方式相互调用.
 
     :copyright: (c) 2017 by Chinasoft International·ETC.    
     :license: BSD, see LICENSE for more details.
@@ -13,22 +13,22 @@
 
 # 导入flask模块库中的Flask类
 from flask import Flask
+from flask import redirect, url_for
 # 创建Flask类实例app
 app = Flask(__name__)
 # 设置当前运行模式为调试模式
 app.config['DEBUG'] = True
 
-# 通过装饰器设置函数URLs访问路径
+# 定义访问项目根目录的请求处理函数
 @app.route('/')
-# 定义设置网站首页的处理函数
 def index():
     return 'Index Page'
 
-# 通过装饰器设置函数URLs访问路径
-@app.route('/hello')
-# 定义设置网站首页的处理函数
-def hello():
-    return '你好，Flask'
+# 定义不携带尾斜杠的path路径地址
+@app.route('/add')
+def add():
+    print('do add operation……')
+    return 'The about page'
 
 # 设置main入口
 if __name__ == '__main__':    
