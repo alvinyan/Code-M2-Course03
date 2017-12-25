@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-    upload.py
+    singleupload.py
     ~~~~~~~~~
     
     演示文件上传.
@@ -34,7 +34,7 @@ def upload():
         return "文件上传成功"
     else:
         # 跳转至上传页面
-        return render_template('upload.html')
+        return render_template('singleupload.html')
 
 # 设置main入口
 if __name__ == '__main__':    
